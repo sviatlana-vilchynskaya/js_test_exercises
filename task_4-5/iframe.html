@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 04</title>
+</head>
+
+<body>
+<h1>Domain two</h1>
+
+<script>
+  window.onmessage = function ({ data }) {
+    if (data) {
+      const { method, key, value } = JSON.parse(data);
+
+      switch (method) {
+        case 'get':
+        {
+          const localKey = checkLocalKey(key);
+          if (localKey) {
+            console.log(localKey);
+            reply();
+          }
+        }
+          break;
+
+        case 'set':
+          localStorage.setItem(key, value);
+          if (checkLocalKey(key)) {
+            console.log('written'+' '+ key +':'+ value);
+            reply();
+          }
+          break;
+
+        case 'delete':
+          if (checkLocalKey(key)) {
+            localStorage.removeItem(key);
+            console.log('removed'+' '+ key +':'+ value);
+            reply();
+          }
+          break;
+
+        default:
+          console.log(`Unknown method (${method})`);
+      }
+    }
+  };
+
+  function checkLocalKey(key) {
+    const localKey = localStorage.getItem(key);
+    !localKey && console.log(`Key is not allowed (${key})`);
+    return localKey;
+  }
+
+  function reply() {
+    window.top.postMessage('reply', '*');
+  }
+</script>
+</body>
+
+</html>

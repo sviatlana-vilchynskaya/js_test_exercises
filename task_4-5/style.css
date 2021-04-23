@@ -1,0 +1,87 @@
+html {
+  box-sizing: border-box;
+  min-width: 320px;
+  min-height: 100%;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.42;
+  font-family:  sans-serif;
+  text-align: left;
+  color: #333;
+  word-break: break-word;
+  background-color: #fff;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col fieldset,
+.col input {
+  display: inline-block;
+}
+
+.col label {
+  display: block;
+  min-width: 200px;
+}
+
+.col input,
+.col button {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.iframe-wrapper {
+  padding-top: 40px;
+}
+
+.iframe {
+  width: 100%;
+  min-height: 100px;
+}
